@@ -11,19 +11,14 @@ Pergunta: prefeitos de primeiro mandato que investiram mais no ano eleitoral de 
 | `codigo/` | Scripts em R (00 a 08) |
 | `dados/` | Base final "merged" (`base_final.rds` e `.csv`): TSE, Siconfi e IBGE, uma linha por município. É a única base usada nas análises |
 | `saidas/` | Contagens, tabelas (`.txt`, `.csv` e `.tex`), figuras (`.png` e `.pdf`) e versões dos pacotes |
-| `dados_brutos.zip` | Dados brutos na versão exata usada no trabalho (≈ 300 MB). Não está no GitHub, que recusa arquivos acima de 100 MB: baixar em [inserir link do Google Drive] e salvar na raiz da pasta |
 | `trabalho_econometria.Rproj` | Projeto do RStudio, que abre já na pasta certa |
 
-Dentro de `dados_brutos.zip`:
-- `dados_brutos/importados/`: os dados de entrada já importados para o R (`.rds`), gerados pelos scripts 01, 03 e 04;
-- `dados_brutos/siconfi_finbra/`: os 7 zips do FINBRA, baixados à mão (ver abaixo).
-
-O script 01 cria `dados_brutos/tse/` só se precisar baixar os dados do TSE.
+Os dados brutos (≈ 300 MB) não estão no repositório, porque passam do limite de 100 MB por arquivo do GitHub. A base final já reúne tudo o que as análises usam. Para reconstruí-la (opção 2, abaixo), os scripts criam a pasta `dados_brutos/`, com `importados/` (dados de entrada importados para o R, gerados pelos scripts 01, 03 e 04), `siconfi_finbra/` (os 7 zips do FINBRA, baixados à mão) e `tse/` (zips do TSE).
 
 ## Requisitos
 - R 4.5.3 (versão usada; as versões dos pacotes estão em `saidas/sessionInfo.txt`).
 - Pacotes: `install.packages(c("data.table", "jsonlite", "AER", "stargazer", "marginaleffects"))`.
-- Só na opção 2 (ver abaixo), se for preciso baixar e importar os dados do TSE do zero (sem `dados_brutos.zip`), os arquivos de candidatos e de votação são grandes: a importação leva alguns minutos e recomendamos pelo menos 8 GB de memória RAM. Com o `dados_brutos.zip`, essa etapa é pulada.
+- Só na opção 2 (ver abaixo): os arquivos de candidatos e de votação do TSE são grandes, e a importação leva alguns minutos e recomendamos pelo menos 8 GB de memória RAM.
 
 ## Como rodar
 Abrir `trabalho_econometria.Rproj` no RStudio. Sem o RStudio, usar `setwd(".../trabalho_econometria")`.
@@ -40,8 +35,8 @@ source("codigo/08_robustez.R", encoding = "UTF-8")
 As tabelas, figuras e números do relatório são gravados em `saidas/`.
 
 ### Opção 2: reconstruir a base a partir dos dados brutos
-1. Baixar `dados_brutos.zip` (link na estrutura da pasta, acima) e colocá-lo na raiz da pasta, para reproduzir exatamente a versão dos dados usada no relatório.
-2. Executar `source("codigo/00_main.R")`, que roda os scripts 01 a 08 em ordem. Se a pasta `dados_brutos/importados/` não existir, o script descompacta `dados_brutos.zip`. Sem esse arquivo, os scripts 01 e 03 baixam os dados do TSE e do IBGE (possivelmente em versão mais nova, ver abaixo), e os zips do FINBRA precisam ser baixados à mão e colocados em `dados_brutos/siconfi_finbra/`.
+1. Baixar à mão os 7 zips do FINBRA (ver abaixo) e colocá-los em `dados_brutos/siconfi_finbra/`.
+2. Executar `source("codigo/00_main.R")`, que roda os scripts 01 a 08 em ordem. Os scripts 01 e 03 baixam os dados do TSE e do IBGE, possivelmente em versão mais nova que a usada no relatório (ver abaixo).
 
 ## Dados de entrada
 | Arquivo em `dados_brutos/importados/` | Fonte | Como | Baixado em |
@@ -57,7 +52,7 @@ As tabelas, figuras e números do relatório são gravados em `saidas/`.
 | `finbra_rreo_funcao_2023/2024_b4.rds` | Siconfi/FINBRA, RREO Anexo 02, Despesa por Função/Subfunção | manual + script 04 | 10/11/2026 |
 
 ### Versão dos dados do TSE
-O TSE atualiza os arquivos de dados abertos. O arquivo de candidatos de 2024, por exemplo, passou de 463.877 para 463.935 linhas entre outubro e novembro de 2026. Quem rodar o script 01 no futuro pode receber outra versão e encontrar contagens um pouco diferentes. O `dados_brutos.zip` guarda exatamente a versão usada no trabalho. Data de geração informada pelo TSE (colunas `DT_GERACAO` e `HH_GERACAO`):
+O TSE atualiza os arquivos de dados abertos. O arquivo de candidatos de 2024, por exemplo, passou de 463.877 para 463.935 linhas entre outubro e novembro de 2026. Quem rodar o script 01 no futuro pode receber outra versão e encontrar contagens um pouco diferentes. A base final (`dados/base_final.rds`) já incorpora a versão usada no trabalho, de modo que a opção 1 reproduz exatamente os números do relatório. Data de geração informada pelo TSE (colunas `DT_GERACAO` e `HH_GERACAO`):
 
 | Arquivo | Linhas | Gerado pelo TSE em |
 |---|---|---|
