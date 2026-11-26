@@ -150,7 +150,7 @@ Saídas complementares, que não entram no relatório: `tabela1b_comparacao_medi
 - Gasto de campanha de 2024 não incluído: além de o arquivo ser grande, ele tende a depender da chance esperada de vitória (possível *bad control*).
 
 ## Uso de inteligência artificial
-Usamos IA ao longo do trabalho: um tutor configurado com o prompt da disciplina (conversa: [inserir link da conversa]) e o Claude (Anthropic). A IA foi usada para discutir as decisões de amostra, variáveis e especificação, para escrever, revisar e depurar o código dos scripts 01 a 08 e para revisar o texto e as tabelas do relatório. As decisões empíricas foram tomadas pela dupla, que conferiu os resultados com os arquivos de saída. A declaração completa está no relatório.
+Usamos IA ao longo do trabalho: um tutor configurado com o prompt da disciplina (conversa: https://claude.ai/share/384c558c-a5b3-4304-b336-81370bf985d7) e o Claude (Anthropic). A IA foi usada para discutir as decisões de amostra, variáveis e especificação, para escrever, revisar e depurar o código dos scripts 01 a 08 e para revisar o texto e as tabelas do relatório. As decisões empíricas foram tomadas pela dupla, que conferiu os resultados com os arquivos de saída. A declaração completa está no relatório.
 
 ## Licença
 O código está sob a licença MIT (arquivo `LICENSE`). Os dados usados são públicos (TSE, Tesouro Nacional/Siconfi e IBGE).
