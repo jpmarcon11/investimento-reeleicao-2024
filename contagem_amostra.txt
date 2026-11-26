@@ -1,0 +1,9 @@
+Municípios com prefeito eleito em 2020: 5494
+2º mandato (eleitos também em 2016): 2121
+1º mandato: 3373
+  ...concorreram em 2024: 2805
+  ...reeleitos em 2024: 2334
+  ...fora da votação (#NULO): 23
+  ...com votos anulados: 19
+  ...com eleição suplementar 2021-2024: 19
+Sem margem de 2020 ou código IBGE: 0
